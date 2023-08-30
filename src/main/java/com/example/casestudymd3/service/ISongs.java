@@ -1,4 +1,6 @@
 package com.example.casestudymd3.service;
 
-public interface Songs {
+import com.example.casestudymd3.model.Songs;
+
+public interface ISongs extends IGenrate<Songs> {
 }
