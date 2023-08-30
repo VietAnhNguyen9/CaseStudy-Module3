@@ -12,6 +12,11 @@ public class SongDAO implements ISongDAO {
             songDAO = new SongDAO();
         } return songDAO;
     }
+    private final String SELECT_ALL = "select * from songs;";
+    private final String SELECT_BY_ID = "select * from songs where songId = ?;";
+    private final String INSERT_INTO = "insert into albums(songName,userId) value (?,?);";
+    private final String UPDATE_BY_ID = "update albums set songName = ? where songId = ?;";
+    private final String DELETE_BY_ID = "delete from albums where songId = ?;";
 
     @Override
     public List<Songs> findAll() {
