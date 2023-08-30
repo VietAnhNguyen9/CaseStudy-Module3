@@ -4,14 +4,16 @@ public class Billings {
     private int billId;
     private Songs song;
     private Users user;
+    private double orderPrice;
 
     public Billings() {
     }
 
-    public Billings(int billId, Songs song, Users user) {
+    public Billings(int billId, Songs song, Users user, double orderPrice) {
         this.billId = billId;
         this.song = song;
         this.user = user;
+        this.orderPrice = orderPrice;
     }
 
     public int getBillId() {
@@ -38,12 +40,21 @@ public class Billings {
         this.user = user;
     }
 
+    public double getOrderPrice() {
+        return orderPrice;
+    }
+
+    public void setOrderPrice(double orderPrice) {
+        this.orderPrice = orderPrice;
+    }
+
     @Override
     public String toString() {
         return "Billings{" +
                 "billId=" + billId +
                 ", song=" + song +
                 ", user=" + user +
+                ", orderPrice=" + orderPrice +
                 '}';
     }
 }

@@ -4,16 +4,14 @@ public class Reactions {
     private int reactionId;
     private Songs song;
     private Users user;
-    private double orderPrice;
 
     public Reactions() {
     }
 
-    public Reactions(int reactionId, Songs song, Users user, double orderPrice) {
+    public Reactions(int reactionId, Songs song, Users user) {
         this.reactionId = reactionId;
         this.song = song;
         this.user = user;
-        this.orderPrice = orderPrice;
     }
 
     public int getReactionId() {
@@ -40,21 +38,12 @@ public class Reactions {
         this.user = user;
     }
 
-    public double getOrderPrice() {
-        return orderPrice;
-    }
-
-    public void setOrderPrice(double orderPrice) {
-        this.orderPrice = orderPrice;
-    }
-
     @Override
     public String toString() {
         return "Reactions{" +
                 "reactionId=" + reactionId +
                 ", song=" + song +
                 ", user=" + user +
-                ", orderPrice=" + orderPrice +
                 '}';
     }
 }
