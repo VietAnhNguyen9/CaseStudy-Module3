@@ -1,9 +1,9 @@
 package com.example.casestudymd3.model;
 
 public enum Role {
-    ADMIN("admin"),
-    SINGER("singer"),
-    MEMBER("member");
+    ADMIN("ADMIN"),
+    SINGER("SINGER"),
+    MEMBER("MEMBER");
     private final String value;
 
     private Role(String value) {
