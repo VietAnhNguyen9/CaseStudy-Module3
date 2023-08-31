@@ -1,0 +1,19 @@
+body {
+    background: aqua;
+}
+#wrapper {
+    max-width: 1200px;
+    margin: 0px auto;
+}
+#main-content{
+    display: flex;
+}
+#content {
+    flex-basis: 75%;
+    background: antiquewhite;
+
+}
+#sidebar {
+    flex-basis: 25%;
+    background: blueviolet;
+}
