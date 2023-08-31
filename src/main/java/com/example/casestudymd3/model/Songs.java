@@ -24,6 +24,26 @@ public class Songs {
         this.user = user;
     }
 
+    public Songs(int songId, String songName, String fileLink, String avatarLink, String description, Albums album, double price) {
+        this.songId = songId;
+        this.songName = songName;
+        this.fileLink = fileLink;
+        this.avatarLink = avatarLink;
+        this.description = description;
+        this.album = album;
+        this.price = price;
+    }
+
+    public Songs(String songName, String fileLink, String avatarLink, String description, Albums album, double price, Users user) {
+        this.songName = songName;
+        this.fileLink = fileLink;
+        this.avatarLink = avatarLink;
+        this.description = description;
+        this.album = album;
+        this.price = price;
+        this.user = user;
+    }
+
     public int getSongId() {
         return songId;
     }
