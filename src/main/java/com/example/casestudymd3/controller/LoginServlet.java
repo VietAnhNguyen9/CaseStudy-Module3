@@ -2,6 +2,7 @@ package com.example.casestudymd3.controller;
 
 import com.example.casestudymd3.DAO.impl.LoginDAO;
 import com.example.casestudymd3.model.Users;
+import com.example.casestudymd3.service.impl.LoginService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -10,7 +11,8 @@ import java.io.IOException;
 
 @WebServlet(name = "LoginServlet", value = "/login")
 public class LoginServlet extends HttpServlet {
-    LoginDAO loginDAO = new LoginDAO();
+    LoginDAO loginDAO = LoginDAO.getInstance();
+    LoginService loginService = LoginService.getInstance();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
@@ -40,9 +42,8 @@ public class LoginServlet extends HttpServlet {
     public void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String userName = request.getParameter("userName");
         String password = request.getParameter("password");
-        Users user = loginDAO.login(userName, password);
-        if (user == null) {
-            request.getRequestDispatcher("404.jsp").forward(request,response);
+        if ( loginService.login(userName, password) == null) {
+            response.sendRedirect("404.jsp");
         }else {
             response.sendRedirect("home.jsp");
         }

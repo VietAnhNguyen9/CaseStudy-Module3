@@ -10,6 +10,13 @@ import java.sql.SQLException;
 
 public class LoginDAO {
     Connection connection = MyConnection.getInstance();
+    private static LoginDAO loginDAO;
+    public static LoginDAO getInstance() {
+        if (loginDAO == null) {
+            loginDAO = new LoginDAO();
+        }
+        return loginDAO;
+    }
     private final String CHECK_USER = "select * from users where userName = ? and password = ?;";
     public Users login(String userName, String password) {
         try(PreparedStatement preparedStatement = connection.prepareStatement(CHECK_USER)) {
@@ -27,4 +34,6 @@ public class LoginDAO {
         }
         return null;
     }
+
+
 }
