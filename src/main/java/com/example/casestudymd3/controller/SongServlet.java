@@ -82,7 +82,7 @@ public class SongServlet extends HttpServlet {
     private void listSong(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Songs> songs = songService.findAll();
         request.setAttribute("list", songs);
-        RequestDispatcher req = request.getRequestDispatcher("home.jsp");
+        RequestDispatcher req = request.getRequestDispatcher("testCRUD.jsp");
         req.forward(request, response);
     }
 }
