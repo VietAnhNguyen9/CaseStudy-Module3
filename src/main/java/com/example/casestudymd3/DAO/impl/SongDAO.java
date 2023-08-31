@@ -22,9 +22,10 @@ public class SongDAO implements ISongDAO {
 
     private final String SELECT_ALL = "select * from songs;";
     private final String SELECT_BY_ID = "select * from songs where songId = ?;";
-    private final String INSERT_INTO = "insert into albums(songName,fileName,avatarLink,description,albumId,price,userId) value (?,?,?,?,?,?,?);";
-    private final String UPDATE_BY_ID = "update albums set songName = ? fileLink =? avatarLink=? description=? albumId=? price=? where songId = ?;";
-    private final String DELETE_BY_ID = "delete from albums where songId = ?;";
+    private final String INSERT_INTO = "insert into songs(songName,fileName,avatarLink,description,albumId,price,userId) value (?,?,?,?,?,?,?);";
+    private final String UPDATE_BY_ID = "update songs set songName = ? fileLink =? avatarLink=? description=? albumId=? price=? where songId = ?;";
+    private final String DELETE_BY_ID = "delete from songs where songId = ?;";
+    private final String SELECT_BY_NAME = "Select * from songs where songName like  ?" ;
 
     @Override
     public List<Songs> findAll() {
@@ -112,5 +113,28 @@ public class SongDAO implements ISongDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+    public List<Songs> searchByName(String nameSearch){
+        List<Songs> songs = new ArrayList<>();
+        try (PreparedStatement preparedStatement = MyConnection.getInstance().prepareStatement(SELECT_BY_NAME)) {
+            String nameS ="%"+nameSearch+"%";
+            preparedStatement.setString(1,nameS);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                int id = resultSet.getInt("songId");
+                String name = resultSet.getString("songName");
+                String file = resultSet.getString("fileLink");
+                String avatar = resultSet.getString("avatarLink");
+                String description = resultSet.getString("description");
+                int idAlbum = resultSet.getInt("albumId");
+                double price = resultSet.getDouble("price");
+                int idUser = resultSet.getInt("userId");
+                songs.add(new Songs(id, name,file,avatar,description,AlbumDAO.getInstance().findOne(idAlbum),price,UserDAO.getInstance().findOne(idUser)));
+            }
+
+        } catch (SQLException e) {
+            e.getStackTrace();
+        }
+        return songs;
     }
 }
