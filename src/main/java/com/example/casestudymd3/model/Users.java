@@ -23,6 +23,10 @@ public class Users {
         this.email = email;
         this.address = address;
     }
+    public Users(String userName, String password) {
+        this.userName = userName;
+        this.password = password;
+    }
 
     public int getUserId() {
         return userId;
