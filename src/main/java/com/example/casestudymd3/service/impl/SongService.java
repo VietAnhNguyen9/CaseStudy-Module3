@@ -19,12 +19,14 @@ public class SongService implements ISongs {
     }
     @Override
     public List<Songs> findAll() {
-        return null;
+        return SongDAO.getInstance().findAll();
     }
 
     @Override
     public Songs findOne(HttpServletRequest request) {
-        return null;
+        int id = Integer.parseInt(request.getParameter("id"));
+        return SongDAO.getInstance().findOne(id);
+
     }
 
     @Override
