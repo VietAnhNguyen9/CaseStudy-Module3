@@ -1,6 +1,7 @@
 package com.example.casestudymd3.controller;
 
 import com.example.casestudymd3.model.Songs;
+import com.example.casestudymd3.service.impl.AlbumService;
 import com.example.casestudymd3.service.impl.SongService;
 
 import javax.servlet.*;
@@ -53,19 +54,39 @@ public class SongServlet extends HttpServlet {
         }
         switch (action) {
             case "create":
-                createGetSong(request, response);
+                createPostSong(request, response);
                 break;
             case "update":
-                updateGetSong(request, response);
+                updatePostSong(request, response);
                 break;
             case "sortByAlbum":
                 sortByAlbum(request, response);
                 break;
-            case "delete":
-                deleteSong(request, response);
-                break;
+
         }
     }
+
+
+    // file jsp testCRUD nay can sua.
+    private void listSong(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<Songs> songs = songService.findAll();
+        request.setAttribute("list", songs);
+        RequestDispatcher req = request.getRequestDispatcher("testCRUD.jsp");
+        req.forward(request, response);
+    }
+
+
+    private void updatePostSong(HttpServletRequest request, HttpServletResponse response) {
+    }
+    private void createGetSong(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        RequestDispatcher req = request.getRequestDispatcher("/albums/createAlbum.jsp");
+        req.forward(request,response);
+    }
+    private void createPostSong(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        AlbumService.getInstance().add(request);
+        response.sendRedirect("albumServlet");
+    }
+
     private void deleteSong(HttpServletRequest request, HttpServletResponse response) {
     }
 
@@ -76,13 +97,7 @@ public class SongServlet extends HttpServlet {
     private void updateGetSong(HttpServletRequest request, HttpServletResponse response) {
     }
 
-    private void createGetSong(HttpServletRequest request, HttpServletResponse response) {
-    }
 
-    private void listSong(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Songs> songs = songService.findAll();
-        request.setAttribute("list", songs);
-        RequestDispatcher req = request.getRequestDispatcher("testCRUD.jsp");
-        req.forward(request, response);
-    }
+
+
 }
