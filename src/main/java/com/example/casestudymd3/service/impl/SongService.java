@@ -1,5 +1,9 @@
 package com.example.casestudymd3.service.impl;
 
+import com.example.casestudymd3.DAO.impl.AlbumDAO;
+import com.example.casestudymd3.DAO.impl.SongDAO;
+import com.example.casestudymd3.DAO.impl.UserDAO;
+import com.example.casestudymd3.model.Albums;
 import com.example.casestudymd3.model.Songs;
 import com.example.casestudymd3.service.ISongs;
 
@@ -25,16 +29,33 @@ public class SongService implements ISongs {
 
     @Override
     public void add(HttpServletRequest request) {
-
+        String name = request.getParameter("name");
+        String linkFile = request.getParameter("linkFile");
+        String avatarFile = request.getParameter("avatarFile");
+        String description = request.getParameter("description");
+        int albumId = Integer.parseInt(request.getParameter("albumId"));
+        double price = Double.parseDouble(request.getParameter("price"));
+        int userId = Integer.parseInt(request.getParameter("userId"));
+        Songs songs = new Songs(name,linkFile,avatarFile,description,AlbumDAO.getInstance().findOne(albumId),price, UserDAO.getInstance().findOne(userId));
+        SongDAO.getInstance().create(songs);
     }
 
     @Override
     public void update(HttpServletRequest request) {
-
+        int songId = Integer.parseInt(request.getParameter("id"));
+        String name = request.getParameter("name");
+        String linkFile = request.getParameter("linkFile");
+        String avatarFile = request.getParameter("avatarFile");
+        String description = request.getParameter("description");
+        int albumId = Integer.parseInt(request.getParameter("albumId"));
+        double price = Double.parseDouble(request.getParameter("price"));
+        Songs songs = new Songs(songId,name,linkFile,avatarFile,description,AlbumDAO.getInstance().findOne(albumId),price);
+        SongDAO.getInstance().update(songs);
     }
 
     @Override
     public void delete(HttpServletRequest request) {
-
+        int songId = Integer.parseInt(request.getParameter("id"));
+        SongDAO.getInstance().delete(songId);
     }
 }

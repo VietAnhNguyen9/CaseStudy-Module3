@@ -14,6 +14,16 @@ public class Albums {
         this.user = user;
     }
 
+    public Albums(int albumId, String albumName) {
+        this.albumId = albumId;
+        this.albumName = albumName;
+    }
+
+    public Albums(String albumName, Users user) {
+        this.albumName = albumName;
+        this.user = user;
+    }
+
     public int getAlbumId() {
         return albumId;
     }
