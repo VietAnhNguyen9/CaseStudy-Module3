@@ -23,6 +23,9 @@ public class LoginServlet extends HttpServlet {
             case "":
                 response.sendRedirect("/login/login.jsp");
                 break;
+            case "signup":
+                response.sendRedirect("/login/sign-up.jsp");
+                break;
         }
     }
 
@@ -36,6 +39,10 @@ public class LoginServlet extends HttpServlet {
             case "login":
                 login(request,response);
                 break;
+            case "signup":
+                singUp(request,response);
+                break;
+
         }
     }
 
@@ -45,7 +52,29 @@ public class LoginServlet extends HttpServlet {
         if ( loginService.login(userName, password) == null) {
             response.sendRedirect("404.jsp");
         }else {
-            response.sendRedirect("home.jsp");
+            response.sendRedirect("homepage.jsp");
+        }
+
+    }
+
+    public void singUp(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String userName = request.getParameter("userName");
+        String password = request.getParameter("password");
+        String rePass = request.getParameter("re-pass");
+        String phoneNumber = request.getParameter("phoneNumber");
+        String email = request.getParameter("email");
+        String address = request.getParameter("address");
+        if (!password.equals(rePass)) {
+            response.sendRedirect("/login/sign-up.jsp");
+        }else {
+            if (loginDAO.checkSignUp(userName) == null) {
+                loginDAO.singUp(userName, password, phoneNumber, email, address);
+                response.sendRedirect("/login/login.jsp");
+            } else {
+                response.sendRedirect("404.jsp");
+            }
+
+
         }
 
     }

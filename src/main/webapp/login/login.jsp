@@ -17,5 +17,8 @@
   <input type="text" name="password">
   <button type="submit">Sign in</button>
 </form>
+<a href="/login?action=signup"><button type="submit">Sign Up</button></a>
+
+
 </body>
 </html>

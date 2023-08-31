@@ -17,9 +17,13 @@ public class LoginDAO {
         }
         return loginDAO;
     }
-    private final String CHECK_USER = "select * from users where userName = ? and password = ?;";
+    private final String CHECK_SIGN_IN = "select * from users where userName = ? and password = ?;";
+
+    private final String CHECK_SIGN_UP = "select * from users where userName = ?;";
+
+    private final String INSERT_INTO_SIGN_UP = "insert into users(userName, password, phoneNumber, email, address) value(?,?,?,?,?);";
     public Users login(String userName, String password) {
-        try(PreparedStatement preparedStatement = connection.prepareStatement(CHECK_USER)) {
+        try(PreparedStatement preparedStatement = connection.prepareStatement(CHECK_SIGN_IN)) {
             preparedStatement.setString(1, userName);
             preparedStatement.setString(2, password);
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -34,6 +38,37 @@ public class LoginDAO {
         }
         return null;
     }
+
+    public Users checkSignUp(String userName) {
+        try(PreparedStatement preparedStatement = connection.prepareStatement(CHECK_SIGN_UP)) {
+            preparedStatement.setString(1, userName);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                return new Users(
+                        resultSet.getString(2),
+                        resultSet.getString(4)
+                );
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public void singUp(String userName, String password, String phoneNumber, String email, String address) {
+        try(PreparedStatement preparedStatement = connection.prepareStatement(INSERT_INTO_SIGN_UP)) {
+            preparedStatement.setString(1, userName);
+            preparedStatement.setString(2, password);
+            preparedStatement.setString(3, phoneNumber);
+            preparedStatement.setString(4, email);
+            preparedStatement.setString(5, address);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
 
 
 }
