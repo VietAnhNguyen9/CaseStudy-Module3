@@ -52,7 +52,7 @@ public class LoginServlet extends HttpServlet {
         if ( loginService.login(userName, password) == null) {
             response.sendRedirect("404.jsp");
         }else {
-            response.sendRedirect("homepage.jsp");
+            response.sendRedirect("/homepage/homepage.jsp");
         }
 
     }

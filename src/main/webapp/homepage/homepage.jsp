@@ -8,8 +8,27 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <link rel="stylesheet" href="homepage.css">
 </head>
 <body>
-<p>Đăng nhập thành công</p>
+
+<div id="wrapper">
+    <jsp:include page="menu.jsp"/>
+    <div id="main-content">
+        <div id="sidebar">
+            <h3>Danh mục</h3>
+            <ul>
+                <li><a href="">Tất cả bài hát</a></li>
+                <li><a href="">Tạo album yêu thích</a></li>
+                <li><a href="">Nghe theo album nhạc</a></li>
+                <li><a href="">Nghe theo ca sĩ</a></li>
+            </ul>
+        </div>
+        <div id="content">
+            <p>Cho danh sách bài hát vào đây</p>
+        </div>
+    </div>
+    <jsp:include page="footer.jsp"/>
+</div>
 </body>
 </html>
