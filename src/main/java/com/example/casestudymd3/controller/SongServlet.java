@@ -42,10 +42,12 @@ public class SongServlet extends HttpServlet {
             case "albumDetail":
                 displayByAlbum(request,response);
                 break;
+            case "singerSong":
+                displayBySinger(request,response);
+                break;
+
         }
     }
-
-
 
 
     @Override
@@ -113,5 +115,10 @@ public class SongServlet extends HttpServlet {
         RequestDispatcher requ = request.getRequestDispatcher("/homepage/homepage.jsp");
         requ.forward(request,response);
     }
-
+    private void displayBySinger(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<Songs> songs = songService.displayBySinger(request);
+        request.setAttribute("list", songs);
+        RequestDispatcher req = request.getRequestDispatcher("/homepage/homepage.jsp");
+        req.forward(request,response);
+    }
 }

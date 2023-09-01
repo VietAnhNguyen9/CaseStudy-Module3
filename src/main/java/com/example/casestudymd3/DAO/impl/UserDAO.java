@@ -7,6 +7,7 @@ import com.example.casestudymd3.model.Users;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserDAO implements IUserDAO {
@@ -21,6 +22,25 @@ public class UserDAO implements IUserDAO {
     private final String INSERT_INTO = "insert into users(userName) value (?);";
     private final String UPDATE_BY_ID = "update users set userName = ? where userId = ?;";
     private final String DELETE_BY_ID = "delete from users where userId = ?;";
+    private final String SELECT_ALL_SINGER = "Select * from users where role = 'SINGER'";
+
+
+    public List<Users> findSinger(){
+        List<Users> users = new ArrayList<>();
+        try (PreparedStatement preparedStatement = MyConnection.getInstance().prepareStatement(SELECT_ALL_SINGER)) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                int idDB = resultSet.getInt("userId");
+                String name = resultSet.getString("userName");
+                users.add(new Users(idDB,name));
+            }
+        } catch (SQLException e) {
+            e.getStackTrace();
+
+        } return users;
+
+    }
+
     @Override
     public List<Users> findAll() {
         return null;
