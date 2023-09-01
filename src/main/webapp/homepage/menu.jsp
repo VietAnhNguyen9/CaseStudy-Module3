@@ -6,6 +6,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="com.example.casestudymd3.model.Role" %>
+
 <html>
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -17,32 +20,42 @@
         <div class="container-fluid">
             <%--            <a class="navbar-brand" href="#">Navbar</a>--%>
             <img src="/fileimg/logo.jpg" width="80px" height="80px" style="background: aliceblue">
-<%--            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"--%>
-<%--                    aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">--%>
-<%--                <span class="navbar-toggler-icon"></span>--%>
-<%--            </button>--%>
+
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="">Account Manager</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="">Revenue</a>
-                    </li>
+                    <c:if test="${sessionScope.user.role == Role.ADMIN}">
+                        <li class="nav-item">
+                            <a class="nav-link" href="">Account Manager</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="">Revenue Website</a>
+                        </li>
+                    </c:if>
+                    <c:if test="${sessionScope.user.role == Role.SINGER}">
                     <li class="nav-item">
                         <a class="nav-link" href="">Song Manager</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="">Revenue</a>
-                    </li> <li class="nav-item">
-                    <a class="nav-link" href="">Login</a>
-                </li> <li class="nav-item">
-                    <a class="nav-link" href="">Logout</a>
-                    </li> <li class="nav-item">
-                    <a class="nav-link">Hi username</a></li>
+                    </li>
+                    </c:if>
+                    <c:if test="${sessionScope.user == null}">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login">Login</a>
+                        </li>
+                    </c:if>
+                    <c:if test="${sessionScope.user != null}">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login?action=logout">Logout</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" style="color: chocolate">Hello ${sessionScope.user.userName} !</a>
+                        </li>
+                    </c:if>
+
                 </ul>
                 <form class="d-flex" role="search">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

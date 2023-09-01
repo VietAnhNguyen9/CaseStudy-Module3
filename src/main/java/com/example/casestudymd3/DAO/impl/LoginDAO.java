@@ -1,6 +1,7 @@
 package com.example.casestudymd3.DAO.impl;
 
 import com.example.casestudymd3.connection.MyConnection;
+import com.example.casestudymd3.model.Role;
 import com.example.casestudymd3.model.Users;
 
 import java.sql.Connection;
@@ -29,8 +30,13 @@ public class LoginDAO {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 return new Users(
+                        resultSet.getInt(1),
                         resultSet.getString(2),
-                        resultSet.getString(4)
+                        Role.valueOf(resultSet.getString(3)),
+                        resultSet.getString(4),
+                        resultSet.getString(5),
+                        resultSet.getString(6),
+                        resultSet.getString(7)
                 );
             }
         } catch (SQLException e) {

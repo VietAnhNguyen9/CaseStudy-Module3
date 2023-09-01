@@ -1,7 +1,5 @@
 package com.example.casestudymd3.model;
 
-import com.example.casestudymd3.model.Role;
-
 public class Users {
     private int userId;
     private String userName;
@@ -11,7 +9,7 @@ public class Users {
     private String email;
     private String address;
 
-    public Users() {
+    public Users(String string, String member, String resultSetString) {
     }
 
     public Users(int userId, String userName) {
