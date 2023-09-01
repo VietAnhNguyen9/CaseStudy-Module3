@@ -35,14 +35,13 @@ public class SongServlet extends HttpServlet {
             case "update":
                 updateGetSong(request, response);
                 break;
-            case "sortByAlbum":
-                sortByAlbum(request, response);
-                break;
+
             case "delete":
                 deleteSong(request, response);
                 break;
         }
     }
+
 
 
 
@@ -62,7 +61,9 @@ public class SongServlet extends HttpServlet {
             case "sortByAlbum":
                 sortByAlbum(request, response);
                 break;
-
+            case "searchByName":
+                searchByName(request, response);
+                break;
         }
     }
 
@@ -71,7 +72,7 @@ public class SongServlet extends HttpServlet {
     private void listSong(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Songs> songs = songService.findAll();
         request.setAttribute("list", songs);
-        RequestDispatcher req = request.getRequestDispatcher("testCRUD.jsp");
+        RequestDispatcher req = request.getRequestDispatcher("homepage/homepage.jsp");
         req.forward(request, response);
     }
 
@@ -97,7 +98,12 @@ public class SongServlet extends HttpServlet {
     private void updateGetSong(HttpServletRequest request, HttpServletResponse response) {
     }
 
-
+    private void searchByName(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<Songs> songs = songService.searchSongByName(request);
+        request.setAttribute("list", songs);
+        RequestDispatcher requ = request.getRequestDispatcher("/homepage/homepage.jsp");
+        requ.forward(request,response);
+    }
 
 
 }

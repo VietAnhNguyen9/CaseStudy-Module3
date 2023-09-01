@@ -8,6 +8,7 @@ import com.example.casestudymd3.model.Songs;
 import com.example.casestudymd3.service.ISongs;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.List;
 
 public class SongService implements ISongs {
@@ -59,5 +60,10 @@ public class SongService implements ISongs {
     public void delete(HttpServletRequest request) {
         int songId = Integer.parseInt(request.getParameter("id"));
         SongDAO.getInstance().delete(songId);
+    }
+    public List<Songs> searchSongByName(HttpServletRequest request){
+        String name = request.getParameter("nameSearch");
+        return SongDAO.getInstance().searchByName(name);
+
     }
 }

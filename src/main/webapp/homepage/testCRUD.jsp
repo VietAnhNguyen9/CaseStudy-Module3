@@ -7,27 +7,27 @@
           integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
 <body>
-<div class="container" style="width: 50%">
-    <h1 style="color: red"><a href="songServlet">List Song</a></h1>
-    <a class="btn btn-primary" href="songServlet?action=create">Create song</a>
-    <a class="btn btn-primary" href="albumServlet?action=createAlbum">Create Album</a>
-    <a class="btn btn-primary" href="albumServlet">List Album</a>
-    <a class="btn btn-primary" href="songServlet?action=sort">Sort by price</a>
-    <br>
-    <form action="songServlet?action=searchByName" method="post">
-        <input type="text" name="nameSearch"  placeholder="Search....">
-        <input  class="btn btn-info" type="submit" value="Search">
-    </form>
-    <br><br>
-    <div>
-        <h4>Search by price</h4>
-        <form action="songServlet?action=searchByPrice" method="post">
-            <input type="number" name="minPrice"  placeholder="min price">
-            <p> To </p>
-            <input type="number" name="maxPrice"  placeholder="max price">
-            <input  class="btn btn-primary" type="submit" value="Search">
-        </form>
-    </div>
+<div>
+<%--    <h1 sty>le="color: red"><a href="songServlet">List Song</a></h1>--%>
+<%--    <a class="btn btn-primary" href="songServlet?action=create">Create song</a>--%>
+<%--    <a class="btn btn-primary" href="albumServlet?action=createAlbum">Create Album</a>--%>
+<%--    <a class="btn btn-primary" href="albumServlet">List Album</a>--%>
+<%--    <a class="btn btn-primary" href="songServlet?action=sort">Sort by price</a>--%>
+<%--    <br>--%>
+<%--    <form action="songServlet?action=searchByName" method="post">--%>
+<%--        <input type="text" name="nameSearch"  placeholder="Search....">--%>
+<%--        <input  class="btn btn-info" type="submit" value="Search">--%>
+<%--    </form>--%>
+<%--    <br><br>--%>
+<%--    <div>--%>
+<%--        <h4>Search by price</h4>--%>
+<%--        <form action="songServlet?action=searchByPrice" method="post">--%>
+<%--            <input type="number" name="minPrice"  placeholder="min price">--%>
+<%--            <p> To </p>--%>
+<%--            <input type="number" name="maxPrice"  placeholder="max price">--%>
+<%--            <input  class="btn btn-primary" type="submit" value="Search">--%>
+<%--        </form>--%>
+<%--    </div>--%>
     <table class="table table-hover">
         <tr>
             <th>STT</th>
