@@ -66,4 +66,8 @@ public class SongService implements ISongs {
         return SongDAO.getInstance().searchByName(name);
 
     }
+    public  List<Songs> displayByAlbum(HttpServletRequest request) {
+        int id = Integer.parseInt(request.getParameter("id"));
+        return SongDAO.getInstance().displayByAlbum(id);
+    }
 }

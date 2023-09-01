@@ -59,7 +59,7 @@ public class AlbumServlet extends HttpServlet {
     private void listAlbum(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Albums> albums = albumService.findAll();
         request.setAttribute("listA", albums);
-        RequestDispatcher req = request.getRequestDispatcher("/albums/displayAlbum.jsp");
+        RequestDispatcher req = request.getRequestDispatcher("/homepage/displayAlbum.jsp");
         req.forward(request, response);
     }
     private void updatePostAlbum(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -91,4 +91,5 @@ public class AlbumServlet extends HttpServlet {
 
     private void deleteAlbum(HttpServletRequest request, HttpServletResponse response) {
     }
+
 }

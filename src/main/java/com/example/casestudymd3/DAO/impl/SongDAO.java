@@ -26,6 +26,7 @@ public class SongDAO implements ISongDAO {
     private final String UPDATE_BY_ID = "update songs set songName = ? fileLink =? avatarLink=? description=? albumId=? price=? where songId = ?;";
     private final String DELETE_BY_ID = "delete from songs where songId = ?;";
     private final String SELECT_BY_NAME = "Select * from songs where songName like  ?" ;
+    private  final  String SELECT_BY_ALBUM = "select * from songs where albumId = ?";
 
     @Override
     public List<Songs> findAll() {
@@ -130,6 +131,28 @@ public class SongDAO implements ISongDAO {
                 double price = resultSet.getDouble("price");
                 int idUser = resultSet.getInt("userId");
                 songs.add(new Songs(id, name,file,avatar,description,AlbumDAO.getInstance().findOne(idAlbum),price,UserDAO.getInstance().findOne(idUser)));
+            }
+
+        } catch (SQLException e) {
+            e.getStackTrace();
+        }
+        return songs;
+    }
+    public List<Songs> displayByAlbum(int id){
+        List<Songs> songs= new ArrayList<>();
+        try (PreparedStatement preparedStatement = MyConnection.getInstance().prepareStatement(SELECT_BY_ALBUM)) {
+            preparedStatement.setInt(1,id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                int idDb = resultSet.getInt("songId");
+                String name = resultSet.getString("songName");
+                String file = resultSet.getString("fileLink");
+                String avatar = resultSet.getString("avatarLink");
+                String description = resultSet.getString("description");
+                int idAlbum = resultSet.getInt("albumId");
+                double price = resultSet.getDouble("price");
+                int idUser = resultSet.getInt("userId");
+                songs.add(new Songs(idDb, name,file,avatar,description,AlbumDAO.getInstance().findOne(idAlbum),price,UserDAO.getInstance().findOne(idUser)));
             }
 
         } catch (SQLException e) {

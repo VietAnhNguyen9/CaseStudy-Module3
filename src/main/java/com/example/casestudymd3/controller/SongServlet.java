@@ -39,6 +39,9 @@ public class SongServlet extends HttpServlet {
             case "delete":
                 deleteSong(request, response);
                 break;
+            case "albumDetail":
+                displayByAlbum(request,response);
+                break;
         }
     }
 
@@ -104,6 +107,11 @@ public class SongServlet extends HttpServlet {
         RequestDispatcher requ = request.getRequestDispatcher("/homepage/homepage.jsp");
         requ.forward(request,response);
     }
-
+    private void displayByAlbum(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<Songs> songs = songService.displayByAlbum(request);
+        request.setAttribute("list", songs);
+        RequestDispatcher requ = request.getRequestDispatcher("/homepage/homepage.jsp");
+        requ.forward(request,response);
+    }
 
 }
