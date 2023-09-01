@@ -60,14 +60,14 @@ public class LoginServlet extends HttpServlet {
         }else {
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
-            response.sendRedirect("/homepage/homepage.jsp");
+            response.sendRedirect("/songServlet");
         }
     }
 
     public void logout(HttpServletRequest request, HttpServletResponse response) throws IOException {
         HttpSession session = request.getSession();
         session.removeAttribute("user");
-        response.sendRedirect("/homepage/homepage.jsp");
+        response.sendRedirect("/songServlet");
     }
 
     public void singUp(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
