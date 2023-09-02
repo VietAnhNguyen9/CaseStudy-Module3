@@ -13,6 +13,14 @@ public class Songs {
     public Songs() {
     }
 
+    public Songs(String songName, String fileLink, String avatarLink, String description, Users user) {
+        this.songName = songName;
+        this.fileLink = fileLink;
+        this.avatarLink = avatarLink;
+        this.description = description;
+        this.user = user;
+    }
+
     public Songs(int songId, String songName, String fileLink, String avatarLink, String description, Albums album, double price, Users user) {
         this.songId = songId;
         this.songName = songName;

@@ -45,7 +45,7 @@
 
                                 <div class="form-outline mb-4">
                                     <input type="password" id="form3Example4cg" class="form-control form-control-lg"
-                                           placeholder="Password" name="password"/>
+                                           placeholder="Password (6-8 characters)" name="password"/>
                                 </div>
 
                                 <div class="form-outline mb-4">
@@ -59,7 +59,7 @@
                                 </div>
 
                                 <div class="form-outline mb-4">
-                                    <input type="number" class="form-control form-control-lg" placeholder="Phone Number"
+                                    <input type="number" class="form-control form-control-lg" placeholder="Phone Number (10 numbers)"
                                            name="phoneNumber"/>
                                 </div>
 
