@@ -35,7 +35,7 @@
                     </c:if>
                     <c:if test="${sessionScope.user.role == Role.SINGER}">
                     <li class="nav-item">
-                        <a class="nav-link" href="">Song Manager</a>
+                        <a class="nav-link" href="/songs/song.jsp">Song Manager</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="">Revenue</a>

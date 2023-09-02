@@ -5,13 +5,16 @@ import com.example.casestudymd3.DAO.impl.SongDAO;
 import com.example.casestudymd3.DAO.impl.UserDAO;
 import com.example.casestudymd3.model.Albums;
 import com.example.casestudymd3.model.Songs;
+import com.example.casestudymd3.model.Users;
 import com.example.casestudymd3.service.ISongs;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
 public class SongService implements ISongs {
+    HttpSession session;
     private static SongService songService;
     public static SongService getInstance(){
         if (songService == null) {
@@ -36,10 +39,8 @@ public class SongService implements ISongs {
         String linkFile = request.getParameter("linkFile");
         String avatarFile = request.getParameter("avatarFile");
         String description = request.getParameter("description");
-        int albumId = Integer.parseInt(request.getParameter("albumId"));
-        double price = Double.parseDouble(request.getParameter("price"));
-        int userId = Integer.parseInt(request.getParameter("userId"));
-        Songs songs = new Songs(name,linkFile,avatarFile,description,AlbumDAO.getInstance().findOne(albumId),price, UserDAO.getInstance().findOne(userId));
+        Users user = (Users) request.getSession().getAttribute("user");
+        Songs songs = new Songs(name,linkFile,avatarFile,description,user);
         SongDAO.getInstance().create(songs);
     }
 

@@ -57,6 +57,7 @@ public class SongServlet extends HttpServlet {
             action = "";
         }
         switch (action) {
+
             case "create":
                 createPostSong(request, response);
                 break;
@@ -85,12 +86,14 @@ public class SongServlet extends HttpServlet {
     private void updatePostSong(HttpServletRequest request, HttpServletResponse response) {
     }
     private void createGetSong(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher req = request.getRequestDispatcher("/albums/createAlbum.jsp");
+        RequestDispatcher req = request.getRequestDispatcher("/songs/createSong.jsp");
         req.forward(request,response);
     }
-    private void createPostSong(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        AlbumService.getInstance().add(request);
-        response.sendRedirect("albumServlet");
+    private void createPostSong(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        songService.add(request);
+        request.setAttribute("mess","Song has been uploaded");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/songs/song.jsp");
+        requestDispatcher.forward(request,response);
     }
 
     private void deleteSong(HttpServletRequest request, HttpServletResponse response) {

@@ -22,7 +22,7 @@ public class SongDAO implements ISongDAO {
 
     private final String SELECT_ALL = "select * from songs;";
     private final String SELECT_BY_ID = "select * from songs where songId = ?;";
-    private final String INSERT_INTO = "insert into songs(songName,fileName,avatarLink,description,albumId,price,userId) value (?,?,?,?,?,?,?);";
+    private final String INSERT_INTO = "insert into songs(songName,filelink,avatarLink,description,userId) value (?,?,?,?,?);";
     private final String UPDATE_BY_ID = "update songs set songName = ? fileLink =? avatarLink=? description=? albumId=? price=? where songId = ?;";
     private final String DELETE_BY_ID = "delete from songs where songId = ?;";
     private final String SELECT_BY_NAME = "Select * from songs where songName like  ?" ;
@@ -81,9 +81,7 @@ public class SongDAO implements ISongDAO {
             preparedStatement.setString(2, songs.getFileLink());
             preparedStatement.setString(3, songs.getAvatarLink());
             preparedStatement.setString(4, songs.getDescription());
-            preparedStatement.setInt(5, songs.getAlbum().getAlbumId());
-            preparedStatement.setDouble(6, songs.getPrice());
-            preparedStatement.setInt(7, songs.getUser().getUserId());
+            preparedStatement.setInt(5, songs.getUser().getUserId());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
