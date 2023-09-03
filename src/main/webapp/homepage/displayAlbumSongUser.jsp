@@ -36,7 +36,7 @@
           <c:forEach items="${AlbumUser}" var="c" varStatus="in">
             <tr>
               <td><c:out value="${in.count}"/></td>
-              <td><a href="songServlet?action=albumDetail&&id=${c.getAlbumId()}"><c:out
+              <td><a href="${c.getAlbumId()}"><c:out
                       value="${c.getAlbumName()}"/></a></td>
             </tr>
           </c:forEach>
