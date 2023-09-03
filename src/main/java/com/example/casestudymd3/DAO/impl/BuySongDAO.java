@@ -20,7 +20,6 @@ public class BuySongDAO {
     }
 
     private final String SELECT_All = "SELECT * FROM songs;";
-    private final String CHECK_SONG = "SELECT * FROM purchased_songs WHERE userId = ? AND songId = ?;";
     private final String INSERT_PURCHASED_SONG = "INSERT INTO purchased_songs (userId, songId) VALUES (?, ?);";
 
     public List<Songs> findAllSong() {
@@ -45,32 +44,15 @@ public class BuySongDAO {
         return songs;
     }
 
-    public boolean checkSongIsPurchased(int userId, int songId) {
-        boolean isPurchased = false;
-        try {
-            PreparedStatement statement = MyConnection.getInstance().prepareStatement(CHECK_SONG);
-            statement.setInt(1, userId);
-            statement.setInt(2, songId);
-            ResultSet resultSet = statement.executeQuery();
-            if (resultSet.next()) {
-                isPurchased = true;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return isPurchased;
-    }
-
     public void buySong(int userId, int songId) {
         try {
-            if (!checkSongIsPurchased(userId, songId)) {
                 PreparedStatement insertStatement = MyConnection.getInstance().prepareStatement(INSERT_PURCHASED_SONG);
                 insertStatement.setInt(1, userId);
                 insertStatement.setInt(2, songId);
                 insertStatement.executeUpdate();
-            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
+
 }
