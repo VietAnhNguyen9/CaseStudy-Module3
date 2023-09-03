@@ -36,13 +36,22 @@
                 <td><c:out value="${p.getPrice()}"/></td>
                 <td><c:out value="${p.getUser().getUserName()}"/></td>
                 <td>
-<%--                    <a class="btn btn-warning" href="songServlet?action=update&&id=${p.getSongId()}">Update</a>--%>
-                    <a class="btn btn-danger" href="songServlet?action=delete&&id=${p.getSongId()}">Delete</a>
+                    <button onclick="myFunction(${p.getSongId()})" class="btn btn-danger">Delete</button>
                 </td>
             </tr>
         </c:forEach>
     </table>
 </div>
 </body>
+<script>
+    function myFunction(c) {
+        if (confirm("Bạn có muốn xóa bài hát không???")) {
+            window.location.href = "songServlet?action=delete&&id=" + c
+            alert("Xóa thành công!")
+        } else {
+            alert("Xóa không thành công!")
+        }
+    }
+</script>
 </html>
 

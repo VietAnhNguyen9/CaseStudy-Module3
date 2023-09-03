@@ -17,7 +17,7 @@
         <div id="sidebar" style="background: lightgray;">
             <h3 style="color: chocolate">Danh mục</h3>
             <ul style="list-style-type: none">
-                <li><a href="songServlet"  style="color: chocolate;text-decoration: none;">Tất cả bài hát</a></li>
+                <li><a href="songServlet" style="color: chocolate;text-decoration: none;">Tất cả bài hát</a></li>
                 <li><a href="" style="color: chocolate;text-decoration: none;">Tạo album yêu thích</a></li>
                 <li><a href="albumServlet" style="color: chocolate;text-decoration: none;">Nghe theo album nhạc</a></li>
                 <li><a href="singerSevlet" style="color: chocolate;text-decoration: none;">Nghe theo ca sĩ</a></li>
@@ -32,25 +32,23 @@
                         <th>STT</th>
                         <th>Singer</th>
                         <c:if test="${sessionScope.user.role == Role.ADMIN}">
-                         <th>Phone number</th>
-                         <th>Email</th>
-                         <th>Address</th>
-<%--                         <th>Time create</th>--%>
-                        <th>Action</th>--%>
+                            <th>Phone number</th>
+                            <th>Email</th>
+                            <th>Address</th>
+                            <th>Action</th>
                         </c:if>
                     </tr>
                     <c:forEach items="${listS}" var="c" varStatus="in">
                         <tr>
                             <td><c:out value="${in.count}"/></td>
-                            <td><a href="songServlet?action=singerSong&&id=${c.getUserId()}"><c:out value="${c.getUserName()}"/></a></td>
+                            <td><a href="songServlet?action=singerSong&&id=${c.getUserId()}"><c:out
+                                    value="${c.getUserName()}"/></a></td>
                             <c:if test="${sessionScope.user.role == Role.ADMIN}">
-                                <td><c:out value="${c.getPhoneNumber()}" /> </td>
-                                <td><c:out value="${c.getEmail()}" /> </td>
-                                <td><c:out value="${c.getAddress()}" /> </td>
+                                <td><c:out value="${c.getPhoneNumber()}"/></td>
+                                <td><c:out value="${c.getEmail()}"/></td>
+                                <td><c:out value="${c.getAddress()}"/></td>
                                 <td>
-                                    <a class="btn btn-warning"
-                                       onclick="myFunction()"
-                                       href="singerServlet?action=deleteSinger&&id=${c.getUserId()}">Delete</a>
+                                    <button class="btn btn-danger" onclick="myFunction(${c.getUserId()})">Delete</button>
 
                                 </td>
                             </c:if>
@@ -60,17 +58,18 @@
 
                 </table>
             </div>
-                <p id="xoa"></p>
+            <p id="xoa"></p>
         </div>
     </div>
 
 </div>
 <script>
-    function myFunction() {
-        if (confirm("If delete singer, you will delete songs of that singer!")){
-        document.getElementById("xoa").innerHTML = "xoa thanh cong";
+    function myFunction(c) {
+        if (confirm("Bạn muốn xo bài hát? ")) {
+            window.location.href = "singerServlet?action=deleteSinger&&id=" + c
+            alert("Xóa thành công!")
         } else {
-            document.getElementById("xoa").innerHTML = "khong xoa";
+            alert("Xóa không thành công!")
         }
     }
 </script>
