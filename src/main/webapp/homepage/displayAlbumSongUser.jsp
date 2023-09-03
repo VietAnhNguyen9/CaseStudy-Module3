@@ -15,17 +15,16 @@
     <div id="sidebar">
       <h3>Danh mục</h3>
       <ul>
-        <li><a href="">Tất cả bài hát</a></li>
-        <li><a href="">Tạo album yêu thích</a></li>
-        <li><a href="albumServlet">Nghe theo album nhạc</a></li>
-        <li><a href="">Nghe theo ca sĩ</a></li>
+        <li><a href="PurchasedSongsServlet">Thêm Bài Hát Vào Album</a></li>
+        <li><a href="BuySongServlet">Mua Bài Hát</a></li>
+        <li><a href="">Hóa Đơn Mua Nhạc</a></li>
       </ul>
     </div>
     <div id="content">
       <div class="container">
 
         <h5 style="color: blue">List Song</h5>
-        <a class="btn btn-primary" href="createAlbumUser">Add Song</a>
+        <a class="btn btn-primary" href="AlbumUser">Add Song</a>
         <a class="btn btn-info" href="AlbumUser">Back to home</a>
 
         <table class="table table-hover">

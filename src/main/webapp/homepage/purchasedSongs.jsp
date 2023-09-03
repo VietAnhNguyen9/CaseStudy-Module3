@@ -15,14 +15,18 @@
         <div id="sidebar">
             <h3>Danh mục</h3>
             <ul>
-                <li><a href="">Tất cả bài hát</a></li>
-                <li><a href="">Tạo album yêu thích</a></li>
-                <li><a href="albumServlet">Nghe theo album nhạc</a></li>
-                <li><a href="">Nghe theo ca sĩ</a></li>
+                <li><a href="PurchasedSongsServlet">Thêm Bài Hát Vào Album</a></li>
+                <li><a href="BuySongServlet">Mua Bài Hát</a></li>
+                <li><a href="">Hóa Đơn Mua Nhạc</a></li>
             </ul>
         </div>
         <div id="content">
             <div class="container">
+
+                <h5 style="color: blue">List Album</h5>
+                <a class="btn btn-primary" href="AlbumUser">Back To My Album</a>
+                <a class="btn btn-info" href="songServlet">Back to home</a>
+
 
                 <h5 style="color: blue">List Purchased Songs</h5>
                 <table class="table table-hover">
@@ -36,7 +40,6 @@
                         <tr>
                             <td><c:out value="${in.count}"/></td>
                             <td><a href="songServlet?action="><c:out value="${p.getSongName()}"/></a></td>
-
                             <td>
                                 <audio controls>
                                     <source src="${p.getFileLink()}" type="audio/webm">
@@ -63,11 +66,10 @@
                             <td><c:out value="${song.getDescription()}"/></td>
                             <td><c:out value="${song.getPrice()}"/></td>
                             <td>
-                                <!-- Form để gửi POST request -->
                                 <form action="BuySongServlet" method="post">
                                     <input type="hidden" name="songId" value="${song.getSongId()}"/>
-                                    <input type="hidden" name="action" value="buySong"/> <!-- Thêm action -->
-                                    <input type="hidden" name="method" value="POST"/> <!-- Thêm method -->
+                                    <input type="hidden" name="action" value="buySong"/>
+                                    <input type="hidden" name="method" value="POST"/>
                                     <input type="submit" value="Mua bài hát"/>
                                 </form>
                             </td>
