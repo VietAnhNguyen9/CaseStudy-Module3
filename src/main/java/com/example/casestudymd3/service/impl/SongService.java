@@ -75,4 +75,10 @@ public class SongService implements ISongs {
         int id = Integer.parseInt(request.getParameter("id"));
         return SongDAO.getInstance().displayBySinger(id);
     }
+
+    public  List<Songs> displayBySinger2(HttpServletRequest request) {
+        Users user = (Users) request.getSession().getAttribute("user");
+        int id = user.getUserId();
+        return SongDAO.getInstance().displayBySinger(id);
+    }
 }

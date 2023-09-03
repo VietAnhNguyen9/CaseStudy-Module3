@@ -23,7 +23,7 @@
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="">Home</a>
+                        <a class="nav-link active" aria-current="page" href="/songServlet">Home</a>
                     </li>
                     <c:if test="${sessionScope.user.role == Role.ADMIN}">
                         <li class="nav-item">
@@ -35,7 +35,7 @@
                     </c:if>
                     <c:if test="${sessionScope.user.role == Role.SINGER}">
                     <li class="nav-item">
-                        <a class="nav-link" href="/songs/song.jsp">Song Manager</a>
+                        <a class="nav-link" href="/songServlet?action=songManager">Song Manager</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="">Revenue</a>

@@ -45,6 +45,9 @@ public class SongServlet extends HttpServlet {
             case "singerSong":
                 displayBySinger(request,response);
                 break;
+            case "songManager":
+                displayBySinger2(request,response);
+                break;
 
         }
     }
@@ -122,6 +125,13 @@ public class SongServlet extends HttpServlet {
         List<Songs> songs = songService.displayBySinger(request);
         request.setAttribute("list", songs);
         RequestDispatcher req = request.getRequestDispatcher("/homepage/homepage.jsp");
+        req.forward(request,response);
+    }
+
+    private void displayBySinger2(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<Songs> songs = songService.displayBySinger2(request);
+        request.setAttribute("list", songs);
+        RequestDispatcher req = request.getRequestDispatcher("/songs/song.jsp");
         req.forward(request,response);
     }
 }

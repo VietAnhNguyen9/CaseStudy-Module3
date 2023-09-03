@@ -9,7 +9,7 @@
 <body>
 <div>
     <jsp:include page="../homepage/menu.jsp"/>
-    <a href="/songServlet?action=create"><button>Create new song</button></a>
+    <a href="/songServlet?action=create"><button type="button" class="btn btn-info">Create new song</button></a>
     <p>${mess}</p>
     <table class="table table-hover">
         <tr>
