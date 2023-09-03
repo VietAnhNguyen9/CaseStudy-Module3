@@ -19,7 +19,6 @@
                 <li><a href="" style="color: chocolate;text-decoration: none;">Tạo album yêu thích</a></li>
                 <li><a href="albumServlet" style="color: chocolate;text-decoration: none;">Nghe theo album nhạc</a></li>
                 <li><a href="singerSevlet" style="color: chocolate;text-decoration: none;">Nghe theo ca sĩ</a></li>
->>>>>>> singer-delete-song
             </ul>
         </div>
         <div id="content">

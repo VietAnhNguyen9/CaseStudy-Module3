@@ -17,7 +17,7 @@
             <ul>
                 <li><a href="PurchasedSongsServlet">Thêm Bài Hát Vào Album</a></li>
                 <li><a href="BuySongServlet">Mua Bài Hát</a></li>
-                <li><a href="">Hóa Đơn Mua Nhạc</a></li>
+                <li><a href="BillSongPurchasedServlet">Hóa Đơn Mua Nhạc</a></li>
             </ul>
         </div>
         <div id="content">
@@ -27,7 +27,6 @@
 
                 <a class="btn btn-primary" href="createAlbumUser">Create Album</a>
                 <a class="btn btn-info" href="songServlet">Back to home</a>
->>>>>>> KhMuaBaiHat
 
                 <table class="table table-hover">
 

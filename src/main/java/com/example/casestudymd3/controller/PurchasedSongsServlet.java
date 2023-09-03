@@ -17,6 +17,7 @@ import java.util.List;
 public class PurchasedSongsServlet extends HttpServlet {
     private PurchasedSongDAO purchasedSongDAO = new PurchasedSongDAO();
     private SongAlbumDAO songAlbumDAO = new SongAlbumDAO();
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
@@ -30,7 +31,7 @@ public class PurchasedSongsServlet extends HttpServlet {
         request.setAttribute("userAlbums", albums);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/homepage/displayListSongsPurchased.jsp");
-        dispatcher.forward(request,response);
+        dispatcher.forward(request, response);
     }
 
     @Override
@@ -39,17 +40,8 @@ public class PurchasedSongsServlet extends HttpServlet {
         int songId = Integer.parseInt(request.getParameter("idSong"));
         int albumId = Integer.parseInt(request.getParameter("userAlbumId"));
 
-        if (!songAlbumDAO.isSongInAlbum(songId, albumId)) {
-            if (songAlbumDAO.addSongToAlbum(songId, albumId)) {
-                response.sendRedirect("success.jsp");
-            } else {
-                response.sendRedirect("error.jsp");
-            }
-        } else {
-            response.sendRedirect("songAlreadyExists.jsp");
-        }
 
-
-
+        songAlbumDAO.addSongToAlbum(songId, albumId);
+        response.sendRedirect("PurchasedSongsServlet");
     }
 }

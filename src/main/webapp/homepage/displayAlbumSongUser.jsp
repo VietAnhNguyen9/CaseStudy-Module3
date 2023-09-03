@@ -17,7 +17,7 @@
       <ul>
         <li><a href="PurchasedSongsServlet">Thêm Bài Hát Vào Album</a></li>
         <li><a href="BuySongServlet">Mua Bài Hát</a></li>
-        <li><a href="">Hóa Đơn Mua Nhạc</a></li>
+        <li><a href="BillSongPurchasedServlet">Hóa Đơn Mua Nhạc</a></li>
       </ul>
     </div>
     <div id="content">
