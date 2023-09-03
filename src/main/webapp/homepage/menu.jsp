@@ -15,7 +15,7 @@
           integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
 <body>
-<div id="header">
+<div id="header" style="background: lightgray">
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
             <img src="/fileimg/logo.jpg" width="80px" height="80px" style="background: aliceblue">

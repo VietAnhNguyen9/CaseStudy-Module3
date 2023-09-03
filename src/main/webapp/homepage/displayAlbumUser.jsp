@@ -25,8 +25,8 @@
             <div class="container">
 
                 <h5 style="color: blue">List Album</h5>
-                <a class="btn btn-primary" href="createAlbumUser">Create album</a>
-                <a class="btn btn-info" href="songServlet">Back to home</a>
+<%--                <a class="btn btn-primary" href="createAlbumUser">Create album</a>--%>
+<%--                <a class="btn btn-info" href="songServlet">Back to home</a>--%>
 
                 <table class="table table-hover">
                     <tr>

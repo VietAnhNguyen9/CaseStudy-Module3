@@ -95,11 +95,18 @@ public class SongServlet extends HttpServlet {
     private void createPostSong(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         songService.add(request);
         request.setAttribute("mess","Song has been uploaded");
+        List<Songs> songs = songService.displayBySinger2(request);
+        request.setAttribute("list", songs);
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/songs/song.jsp");
         requestDispatcher.forward(request,response);
     }
 
-    private void deleteSong(HttpServletRequest request, HttpServletResponse response) {
+    private void deleteSong(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        songService.delete(request);
+        List<Songs> songs = songService.findAll();
+        request.setAttribute("list", songs);
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/homepage/homepage.jsp");
+        requestDispatcher.forward(request,response);
     }
 
     private void sortByAlbum(HttpServletRequest request, HttpServletResponse response) {
