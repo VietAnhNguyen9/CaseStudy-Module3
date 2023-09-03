@@ -20,6 +20,7 @@
                 <li><a href="albumServlet" style="color: chocolate;text-decoration: none;">Nghe theo album nhạc</a></li>
                 <li><a href="singerServlet" style="color: chocolate;text-decoration: none;">Nghe theo ca sĩ</a></li>
             </ul>
+        </div>
         <div id="content">
             <div class="container">
 
@@ -45,8 +46,6 @@
                     </c:forEach>
                 </table>
             </div>
-
-        </div>
     </div>
 
 
