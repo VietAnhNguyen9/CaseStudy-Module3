@@ -32,7 +32,11 @@ public class UserDAO implements IUserDAO {
             while (resultSet.next()) {
                 int idDB = resultSet.getInt("userId");
                 String name = resultSet.getString("userName");
-                users.add(new Users(idDB,name));
+                String pass = resultSet.getString("password");
+                String phone = resultSet.getString("phoneNumber");
+                String email = resultSet.getString("email");
+                String address = resultSet.getString("address");
+                users.add(new Users(idDB,name,pass,phone,email,address));
             }
         } catch (SQLException e) {
             e.getStackTrace();
@@ -76,6 +80,11 @@ public class UserDAO implements IUserDAO {
 
     @Override
     public void delete(int id) {
-
+        try (PreparedStatement preparedStatement = MyConnection.getInstance().prepareStatement(DELETE_BY_ID)) {
+            preparedStatement.setInt(1, id);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

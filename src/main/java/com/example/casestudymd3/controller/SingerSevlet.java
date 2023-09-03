@@ -10,7 +10,7 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "SingerSevlet", value = "/singerSevlet")
+@WebServlet(name = "singerServlet", value = "/singerServlet")
 public class SingerSevlet extends HttpServlet {
     private SingerService service;
 
@@ -29,8 +29,16 @@ public class SingerSevlet extends HttpServlet {
             case "":
                 listSinger(request, response);
                 break;
-
+            case "deleteSinger":
+                deleteById(request,response);
+                break;
         }
+    }
+
+    private void deleteById(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        service.deleteById(request);
+        response.sendRedirect("singerServlet");
+
     }
 
     private void listSinger(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

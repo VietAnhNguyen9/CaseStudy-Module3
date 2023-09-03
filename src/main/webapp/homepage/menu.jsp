@@ -23,11 +23,11 @@
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/songServlet">Home</a>
+                        <a class="nav-link active" aria-current="page" href="songServlet">Home</a>
                     </li>
                     <c:if test="${sessionScope.user.role == Role.ADMIN}">
                         <li class="nav-item">
-                            <a class="nav-link" href="">Account Manager</a>
+                            <a class="nav-link" href="singerServlet">Singer Manager</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="">Revenue Website</a>

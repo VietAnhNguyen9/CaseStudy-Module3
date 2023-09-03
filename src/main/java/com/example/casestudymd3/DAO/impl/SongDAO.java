@@ -28,6 +28,7 @@ public class SongDAO implements ISongDAO {
     private final String SELECT_BY_NAME = "Select * from songs where songName like  ?" ;
     private  final  String SELECT_BY_ALBUM = "select * from songs where albumId = ?";
     private  final  String SELECT_BY_SINGER = "select * from songs where userId = ?";
+    private  final  String DELETE_BY_ID_SINGER = "delete from songs where userId = ?";
 
     @Override
     public List<Songs> findAll() {
@@ -180,4 +181,13 @@ public class SongDAO implements ISongDAO {
             e.getStackTrace();
         }
         return songs;
-    }}
+    }
+    public void deleteByUser(int id) {
+        try (PreparedStatement preparedStatement = MyConnection.getInstance().prepareStatement(DELETE_BY_ID_SINGER)) {
+            preparedStatement.setInt(1, id);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}
