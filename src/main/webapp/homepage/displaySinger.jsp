@@ -57,9 +57,10 @@
 
                         </tr>
                     </c:forEach>
+
                 </table>
             </div>
-
+                <p id="xoa"></p>
         </div>
     </div>
 
@@ -67,7 +68,9 @@
 <script>
     function myFunction() {
         if (confirm("If delete singer, you will delete songs of that singer!")){
-
+        document.getElementById("xoa").innerHTML = "xoa thanh cong";
+        } else {
+            document.getElementById("xoa").innerHTML = "khong xoa";
         }
     }
 </script>

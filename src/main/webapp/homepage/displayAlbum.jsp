@@ -12,6 +12,7 @@
     <jsp:include page="menu.jsp"/>
 
     <div id="main-content">
+<<<<<<< HEAD
         <div id="sidebar" style="background: lightgray;">
             <h3 style="color: chocolate">Danh mục</h3>
             <ul style="list-style-type: none">
@@ -20,6 +21,15 @@
                 <li><a href="albumServlet" style="color: chocolate;text-decoration: none;">Nghe theo album nhạc</a></li>
                 <li><a href="singerSevlet" style="color: chocolate;text-decoration: none;">Nghe theo ca sĩ</a></li>
 >>>>>>> singer-delete-song
+=======
+        <div id="sidebar">
+            <h3>Danh mục</h3>
+            <ul>
+                <li><a href="songServlet">Tất cả bài hát</a></li>
+                <li><a href="">Tạo album yêu thích</a></li>
+                <li><a href="albumServlet">Nghe theo album nhạc</a></li>
+                <li><a href="singerServlet">Nghe theo ca sĩ</a></li>
+>>>>>>> thanh-12
             </ul>
         </div>
         <div id="content">
