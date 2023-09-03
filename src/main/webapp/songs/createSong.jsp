@@ -17,11 +17,11 @@
     <h1 style="text-align: center; color:cornflowerblue">Create New Song</h1>
 <form action="/songServlet?action=create" method="post">
     <div class="form-outline mb-4">
-        <input class="form-control" name="name" placeholder="Enter Song Name"/>
+        <input class="form-control" name="name" placeholder="Enter Song Name" required/>
     </div>
     <div class="form-outline mb-4">
         <input class="form-control" name="linkFile"
-               placeholder="Enter Link File"/>
+               placeholder="Enter Link File" required/>
     </div>
     <div class="form-outline mb-4">
         <input class="form-control" name="avatarFile"
@@ -29,7 +29,7 @@
     </div>
     <div class="form-outline mb-4">
         <input class="form-control" name="description"
-               placeholder="Enter Description"/>
+               placeholder="Enter Description" required/>
     </div>
     <!-- Submit button -->
     <button type="submit" class="btn btn-primary btn-block mb-4" style="width: 372px; margin: auto">Create</button>

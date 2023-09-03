@@ -13,12 +13,13 @@
     <table class="table table-hover">
         <tr>
             <th>STT</th>
-            <th>Name</th>
+            <th>Ảnh</th>
+            <th>Tên</th>
             <th>Album</th>
-            <th>Description</th>
-            <th>Audio</th>
-            <th>Price</th>
-            <th>Singer</th>
+            <th>Mô tả</th>
+            <th>Phát nhạc</th>
+            <th>Giá</th>
+            <th>Ca sĩ</th>
             <c:if test="${sessionScope.user.role == Role.ADMIN}">
                 <th colspan="2" style="text-align: left">Action</th>
             </c:if>
@@ -26,6 +27,9 @@
         <c:forEach items="${list}" var="p" varStatus="in">
             <tr>
                 <td><c:out value="${in.count}"/></td>
+                <td>
+                    <img style="width: 50%;height: 50%" src="${p.getAvatarLink()}" alt="ảnh">
+                </td>
                 <td><a href="songServlet?action=" style="text-decoration: none;"><c:out value="${p.getSongName()}"/></a>
                 </td>
                 <td><a href="songServlet?action=" style="text-decoration: none;"><c:out
@@ -40,14 +44,23 @@
                 <td><c:out value="${p.getUser().getUserName()}"/></td>
                 <td>
                     <c:if test="${sessionScope.user.role == Role.ADMIN}">
-                        <a class="btn btn-warning" href="songServlet?action=update&&id=${p.getSongId()}">Update</a>
-                        <a class="btn btn-danger" href="songServlet?action=delete&&id=${p.getSongId()}">Delete</a>
-                    </c:if>
+                        <button class="btn btn-danger" onclick="myFunction(${p.getSongId()})">Delete</button>
+                        </c:if>
                 </td>
             </tr>
         </c:forEach>
     </table>
 </div>
 </body>
+<script>
+    function myFunction(c) {
+        if (confirm("Bạn muốn xo bài hát? ")) {
+            window.location.href = "songServlet?action=delete&&id=" + c
+            alert("Xóa thành công!")
+        } else {
+            alert("Xóa không thành công!")
+        }
+    }
+</script>
 </html>
 
