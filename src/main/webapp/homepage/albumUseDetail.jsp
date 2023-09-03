@@ -20,26 +20,31 @@
                 <li><a href="">Hóa Đơn Mua Nhạc</a></li>
             </ul>
         </div>
-        <div id="content">
+            <div id="content">
             <div class="container">
 
-                <h5 style="color: blue">List Album</h5>
-
-                <a class="btn btn-primary" href="createAlbumUser">Create Album</a>
-                <a class="btn btn-info" href="songServlet">Back to home</a>
->>>>>>> KhMuaBaiHat
+                <h5 style="color: blue">List Song</h5>
+                <a class="btn btn-primary" href="PurchasedSongsServlet">Add Music</a>
+                <a class="btn btn-info" href="AlbumUser">Back To My Album</a>
 
                 <table class="table table-hover">
-
                     <tr>
                         <th>STT</th>
                         <th>Name</th>
+                        <th>Audio</th>
+                        <th>Description</th>
+                        <th>Action</th>
                     </tr>
-                    <c:forEach items="${AlbumUser}" var="c" varStatus="in">
+                    <c:forEach items="${albumSongs}" var="as" varStatus="in">
                         <tr>
                             <td><c:out value="${in.count}"/></td>
-                            <td><a href="AlbumUserDetail?id=${c.getAlbumId()}"><c:out
-                                    value="${c.getAlbumName()}"/></a></td>
+                            <td><a href=""><c:out value="${as.getSongName()}"/></a></td>
+                            <td>
+                                <audio controls>
+                                    <source src="${as.getFileLink()}" type="audio/webm">
+                                </audio>
+                            </td>
+                            <td><c:out value="${as.getDescription()}"/></td>
                         </tr>
                     </c:forEach>
                 </table>
