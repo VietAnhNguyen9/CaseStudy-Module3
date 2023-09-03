@@ -18,7 +18,7 @@
         <li><a href="">Tất cả bài hát</a></li>
         <li><a href="">Tạo album yêu thích</a></li>
         <li><a href="albumServlet">Nghe theo album nhạc</a></li>
-        <li><a href="">Nghe theo ca sĩ</a></li>
+        <li><a href="singerServlet">Nghe theo ca sĩ</a></li>
       </ul>
     </div>
     <div id="content">
