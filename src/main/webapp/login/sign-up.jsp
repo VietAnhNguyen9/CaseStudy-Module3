@@ -33,54 +33,55 @@
                 <div class="col-12 col-md-9 col-lg-7 col-xl-6">
                     <div class="card" style="border-radius: 15px;">
                         <div class="card-body p-5">
-                            <h2 class="text-uppercase text-center mb-5" style="color: cornflowerblue">Create an
-                                account</h2>
+                            <h2 class="text-uppercase text-center mb-5" style="color: cornflowerblue">Thêm 1 tài
+                                khoản</h2>
 
                             <form action="/login?action=signup" method="post">
 
                                 <div class="form-outline mb-4">
                                     <input type="text" id="form3Example1cg" class="form-control form-control-lg"
-                                           placeholder="User Name" name="userName"/>
+                                           placeholder="Tên tài khoản" name="userName"/>
                                 </div>
 
                                 <div class="form-outline mb-4">
                                     <input type="password" id="form3Example4cg" class="form-control form-control-lg"
-                                           placeholder="Password (6-8 characters)" name="password"/>
+                                           placeholder="Mật khẩu (6-8 ký tự)" name="password"/>
                                 </div>
 
                                 <div class="form-outline mb-4">
                                     <input type="password" id="form3Example4cdg" class="form-control form-control-lg"
-                                           placeholder="Repeat Your Password" name="re-pass"/>
+                                           placeholder="Nhập lại mật khẩu" name="re-pass"/>
                                 </div>
 
                                 <div class="form-outline mb-4">
-                                    <input type="email" class="form-control form-control-lg" placeholder="Your Email"
+                                    <input type="email" class="form-control form-control-lg" placeholder="Email"
                                            name="email"/>
                                 </div>
 
                                 <div class="form-outline mb-4">
-                                    <input type="number" class="form-control form-control-lg" placeholder="Phone Number (10 numbers)"
+                                    <input type="number" class="form-control form-control-lg"
+                                           placeholder="Số điện thoại (10 số)"
                                            name="phoneNumber"/>
                                 </div>
 
                                 <div class="form-outline mb-4">
-                                    <input type="text" class="form-control form-control-lg" placeholder="Address"
+                                    <input type="text" class="form-control form-control-lg" placeholder="Địa chỉ"
                                            name="address"/>
                                 </div>
 
                                 <div class="d-flex justify-content-center">
                                     <button type="submit"
-                                            class="btn btn-primary btn-block mb-4">Register
+                                            class="btn btn-primary btn-block mb-4">Đăng ký
                                     </button>
                                 </div>
                             </form>
 
                             <p class="text-danger">${messenger}</p>
 
-                            <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="/login"
-                                                                                                    class="fw-bold text-body"
-                                                                                                    style="color: cornflowerblue"><u>Login
-                                here</u></a></p>
+                            <p class="text-center text-muted mt-5 mb-0">Đã có tài khoản? <a href="/login"
+                                                                                                class="fw-bold text-body"
+                                                                                                style="color: cornflowerblue">
+                                <u>Đăng nhập tại đây</u></a></p>
 
 
                         </div>

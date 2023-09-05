@@ -23,17 +23,17 @@
             <div id="content">
             <div class="container">
 
-                <h5 style="color: blue">List Song</h5>
-                <a class="btn btn-primary" href="PurchasedSongsServlet">Add Music</a>
-                <a class="btn btn-info" href="AlbumUser">Back To My Album</a>
+                <h5 style="color: blue">Danh sách bài hát</h5>
+                <a class="btn btn-primary" href="PurchasedSongsServlet">Thêm nhạc</a>
+                <a class="btn btn-info" href="AlbumUser">Trở lại Album</a>
 
                 <table class="table table-hover">
                     <tr>
                         <th>STT</th>
-                        <th>Name</th>
-                        <th>Audio</th>
-                        <th>Description</th>
-                        <th>Action</th>
+                        <th>Tên</th>
+                        <th>Âm thanh</th>
+                        <th>Mô tả</th>
+                        <th>Hành động</th>
                     </tr>
                     <c:forEach items="${albumSongs}" var="as" varStatus="in">
                         <tr>

@@ -23,18 +23,18 @@
         <div id="content">
             <div class="container">
 
-                <h5 style="color: blue">List Album</h5>
-                <a class="btn btn-primary" href="AlbumUser">Back To My Album</a>
-                <a class="btn btn-info" href="songServlet">Back to home</a>
+                <h5 style="color: blue">Danh sách Album</h5>
+                <a class="btn btn-primary" href="AlbumUser">Trở lại Album của tôi</a>
+                <a class="btn btn-info" href="songServlet">Trở về</a>
 
 
                 <h5 style="color: blue">List Purchased Songs</h5>
                 <table class="table table-hover">
                     <tr>
                         <th>STT</th>
-                        <th>Name</th>
-                        <th>Audio</th>
-                        <th>Description</th>
+                        <th>Tên</th>
+                        <th>Âm thanh</th>
+                        <th>Mô tả</th>
                     </tr>
                     <c:forEach items="${purchasedSongs}" var="p" varStatus="in">
                         <tr>
@@ -50,14 +50,14 @@
                     </c:forEach>
                 </table>
 
-                <h5 style="color: blue">List Unpurchased Songs</h5>
+                <h5 style="color: blue">Bải hát chưa mua</h5>
                 <table class="table table-hover">
                     <tr>
                         <th>STT</th>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Price</th>
-                        <th>Action</th>
+                        <th>Tên</th>
+                        <th>Mô tả</th>
+                        <th>Giá</th>
+                        <th>Hành động</th>
                     </tr>
                     <c:forEach items="${unpurchasedSongs}" var="song" varStatus="in">
                         <tr>

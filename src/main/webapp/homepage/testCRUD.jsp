@@ -21,7 +21,7 @@
             <th>Giá</th>
             <th>Ca sĩ</th>
             <c:if test="${sessionScope.user.role == Role.ADMIN}">
-                <th colspan="2" style="text-align: left">Action</th>
+                <th colspan="2" style="text-align: left">Hành động</th>
             </c:if>
         </tr>
         <c:forEach items="${list}" var="p" varStatus="in">
@@ -44,7 +44,7 @@
                 <td><c:out value="${p.getUser().getUserName()}"/></td>
                 <td>
                     <c:if test="${sessionScope.user.role == Role.ADMIN}">
-                        <button class="btn btn-danger" onclick="myFunction(${p.getSongId()})">Delete</button>
+                        <button class="btn btn-danger" onclick="myFunction(${p.getSongId()})">Xóa</button>
                         </c:if>
                 </td>
             </tr>

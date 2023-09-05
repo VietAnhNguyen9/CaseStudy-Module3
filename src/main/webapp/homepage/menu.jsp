@@ -23,42 +23,42 @@
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="songServlet">Home</a>
+                        <a class="nav-link active" aria-current="page" href="songServlet">Trang chủ</a>
                     </li>
                     <c:if test="${sessionScope.user.role == Role.ADMIN}">
                         <li class="nav-item">
-                            <a class="nav-link" href="singerServlet">Singer Manager</a>
+                            <a class="nav-link" href="singerServlet">Quản lý ca sĩ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="">Revenue Website</a>
+                            <a class="nav-link" href="">Doanh thu trang wed</a>
                         </li>
                     </c:if>
                     <c:if test="${sessionScope.user.role == Role.SINGER}">
                     <li class="nav-item">
-                        <a class="nav-link" href="/songServlet?action=songManager">Song Manager</a>
+                        <a class="nav-link" href="/songServlet?action=songManager">Quản lý bài hát</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">Revenue</a>
+                        <a class="nav-link" href="">Doanh thu</a>
                     </li>
                     </c:if>
                     <c:if test="${sessionScope.user == null}">
                         <li class="nav-item">
-                            <a class="nav-link" href="/login">Login</a>
+                            <a class="nav-link" href="/login">Đăng nhập</a>
                         </li>
                     </c:if>
                     <c:if test="${sessionScope.user != null}">
                         <li class="nav-item">
-                            <a class="nav-link" href="/login?action=logout">Logout</a>
+                            <a class="nav-link" href="/login?action=logout">Đăng xuất</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" style="color: chocolate">Hello ${sessionScope.user.userName} !</a>
+                            <a class="nav-link" style="color: chocolate">Xin chào ${sessionScope.user.userName} !</a>
                         </li>
                     </c:if>
 
                 </ul>
                 <form action="songServlet?action=searchByName" class="d-flex" role="search" method="post">
-                    <input class="form-control me-2" name="nameSearch" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+                    <input class="form-control me-2" name="nameSearch" type="search" placeholder="tìm kiếm..." aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Tìm kiếm</button>
                 </form>
             </div>
         </div>

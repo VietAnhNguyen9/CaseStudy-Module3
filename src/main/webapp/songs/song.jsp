@@ -15,13 +15,13 @@
     <table class="table table-hover">
         <tr>
             <th>STT</th>
-            <th>Name</th>
+            <th>Tên</th>
             <th>Album</th>
-            <th>Description</th>
-            <th>Audio</th>
-            <th>Price</th>
-            <th>Singer</th>
-            <th colspan="2" style="text-align: left">Action</th>
+            <th>Mô tả</th>
+            <th>Âm thanh</th>
+            <th>Giá</th>
+            <th>Ca sĩ</th>
+            <th colspan="2" style="text-align: left">Hành động</th>
         </tr>
         <c:forEach items="${list}" var="p" varStatus="in">
             <tr>
@@ -36,7 +36,7 @@
                 <td><c:out value="${p.getPrice()}"/></td>
                 <td><c:out value="${p.getUser().getUserName()}"/></td>
                 <td>
-                    <button onclick="myFunction(${p.getSongId()})" class="btn btn-danger">Delete</button>
+                    <button onclick="myFunction(${p.getSongId()})" class="btn btn-danger">Xóa</button>
                 </td>
             </tr>
         </c:forEach>

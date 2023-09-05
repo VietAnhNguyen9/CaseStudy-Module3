@@ -24,22 +24,22 @@
         <div id="content">
             <div class="container">
 
-                <h5 style="color: blue">List Album</h5>
-                <a class="btn btn-primary" href="albumServlet?action=createAlbum">Create album</a>
-                <a class="btn btn-info" href="songServlet">Back to home</a>
+                <h5 style="color: blue">Danh sách Album</h5>
+                <a class="btn btn-primary" href="albumServlet?action=createAlbum">Tạo album</a>
+                <a class="btn btn-info" href="songServlet">Trang chủ</a>
 
                 <table class="table table-hover">
                     <tr>
                         <th>STT</th>
-                        <th>Name</th>
-                        <th colspan="2" style="text-align: left">Action</th>
+                        <th>Tên</th>
+                        <th colspan="2" style="text-align: left">Hành động</th>
                     </tr>
                     <c:forEach items="${listA}" var="c" varStatus="in">
                         <tr>
                             <td><c:out value="${in.count}"/></td>
                             <td><a href="songServlet?action=albumDetail&&id=${c.getAlbumId()}"><c:out value="${c.getAlbumName()}"/></a></td>
                             <td>
-                                <a class="btn btn-warning" href="albumServlet?action=updateAlbum&&id=${c.getAlbumId()}">Update</a>
+                                <a class="btn btn-warning" href="albumServlet?action=updateAlbum&&id=${c.getAlbumId()}">Cập nhật</a>
 
                             </td>
                         </tr>

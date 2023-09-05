@@ -65,7 +65,7 @@
 </div>
 <script>
     function myFunction(c) {
-        if (confirm("Bạn muốn xo bài hát? ")) {
+        if (confirm("Xóa ca sĩ đồng nghĩa xóa cả bài hát, bản có chắc không? ? ")) {
             window.location.href = "singerServlet?action=deleteSinger&&id=" + c
             alert("Xóa thành công!")
         } else {

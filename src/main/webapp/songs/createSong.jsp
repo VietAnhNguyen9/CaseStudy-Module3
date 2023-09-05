@@ -14,25 +14,25 @@
 <body>
 <jsp:include page="../homepage/menu.jsp"/>
 <div class="container" style="width: 400px; border:solid cornflowerblue; margin-top: 100px; border-radius: 15px">
-    <h1 style="text-align: center; color:cornflowerblue">Create New Song</h1>
+    <h1 style="text-align: center; color:cornflowerblue">Thêm bài hát mới</h1>
 <form action="/songServlet?action=create" method="post">
     <div class="form-outline mb-4">
-        <input class="form-control" name="name" placeholder="Enter Song Name" required/>
+        <input class="form-control" name="name" placeholder="Nhập tên bài hát" required/>
     </div>
     <div class="form-outline mb-4">
         <input class="form-control" name="linkFile"
-               placeholder="Enter Link File" required/>
+               placeholder="Nhập link File" required/>
     </div>
     <div class="form-outline mb-4">
         <input class="form-control" name="avatarFile"
-               placeholder="Enter Avatar"/>
+               placeholder="Thêm Avatar"/>
     </div>
     <div class="form-outline mb-4">
         <input class="form-control" name="description"
-               placeholder="Enter Description" required/>
+               placeholder="Nhập mô tả" required/>
     </div>
     <!-- Submit button -->
-    <button type="submit" class="btn btn-primary btn-block mb-4" style="width: 372px; margin: auto">Create</button>
+    <button type="submit" class="btn btn-primary btn-block mb-4" style="width: 372px; margin: auto">Thêm</button>
 </form>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
